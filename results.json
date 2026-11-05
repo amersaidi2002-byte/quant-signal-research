@@ -1,0 +1,249 @@
+{
+  "study": "Synthetic alpha-signal benchmark",
+  "simulated_data": true,
+  "interpretation": "Controlled simulation only; not measured market alpha or a forecast of live returns.",
+  "seed": 42,
+  "observations": 12000,
+  "initial_train": 4000,
+  "test_observations": 8000,
+  "gap": 1,
+  "horizon": 1,
+  "tuning": "Initial chronological 2999/1000 development split with one excluded row.",
+  "selected_model_on_development": "RandomForest",
+  "selected": {
+    "Ridge": {
+      "parameters": {
+        "alpha": 0.1
+      },
+      "validation_mse": 6.23114650669243e-05
+    },
+    "RandomForest": {
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 3,
+        "min_samples_leaf": 75,
+        "random_state": 42,
+        "n_jobs": 1
+      },
+      "validation_mse": 6.218690771642063e-05
+    }
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "train_first": 0,
+      "train_last": 3998,
+      "test_first": 4000,
+      "test_last": 5999,
+      "gap": 1
+    },
+    {
+      "fold": 2,
+      "train_first": 0,
+      "train_last": 5998,
+      "test_first": 6000,
+      "test_last": 7999,
+      "gap": 1
+    },
+    {
+      "fold": 3,
+      "train_first": 0,
+      "train_last": 7998,
+      "test_first": 8000,
+      "test_last": 9999,
+      "gap": 1
+    },
+    {
+      "fold": 4,
+      "train_first": 0,
+      "train_last": 9998,
+      "test_first": 10000,
+      "test_last": 11999,
+      "gap": 1
+    }
+  ],
+  "metrics": [
+    {
+      "model": "ZeroForecast",
+      "observations": 8000,
+      "mse": 0.00012603566330123876,
+      "mae": 0.008828092956708812,
+      "pearson_ic": null,
+      "spearman_ic": null,
+      "ic_95pct_block_bootstrap": null,
+      "mse_reduction_vs_zero_pct": 0.0
+    },
+    {
+      "model": "Ridge",
+      "observations": 8000,
+      "mse": 0.00012494703490742822,
+      "mae": 0.008782796226606127,
+      "pearson_ic": 0.09470030839525788,
+      "spearman_ic": 0.09665096333048383,
+      "ic_95pct_block_bootstrap": [
+        0.07197195231764014,
+        0.11658158675850934
+      ],
+      "mse_reduction_vs_zero_pct": 0.8637463121914934
+    },
+    {
+      "model": "RandomForest",
+      "observations": 8000,
+      "mse": 0.00012493195922803777,
+      "mae": 0.00878546013696852,
+      "pearson_ic": 0.09528598344097974,
+      "spearman_ic": 0.09504533419602086,
+      "ic_95pct_block_bootstrap": [
+        0.07244580370633877,
+        0.1171970034100095
+      ],
+      "mse_reduction_vs_zero_pct": 0.8757077515139655
+    }
+  ],
+  "fold_metrics": [
+    {
+      "model": "ZeroForecast",
+      "fold": 1,
+      "mse": 6.74311033917776e-05,
+      "pearson_ic": null
+    },
+    {
+      "model": "ZeroForecast",
+      "fold": 2,
+      "mse": 0.00014456016884597145,
+      "pearson_ic": null
+    },
+    {
+      "model": "ZeroForecast",
+      "fold": 3,
+      "mse": 0.00014699723294308743,
+      "pearson_ic": null
+    },
+    {
+      "model": "ZeroForecast",
+      "fold": 4,
+      "mse": 0.00014515414802411853,
+      "pearson_ic": null
+    },
+    {
+      "model": "Ridge",
+      "fold": 1,
+      "mse": 6.63679317890265e-05,
+      "pearson_ic": 0.1306083730860359
+    },
+    {
+      "model": "Ridge",
+      "fold": 2,
+      "mse": 0.0001434013978983614,
+      "pearson_ic": 0.089013837329582
+    },
+    {
+      "model": "Ridge",
+      "fold": 3,
+      "mse": 0.0001458913247751203,
+      "pearson_ic": 0.08879672667278446
+    },
+    {
+      "model": "Ridge",
+      "fold": 4,
+      "mse": 0.00014412748516720464,
+      "pearson_ic": 0.08583020522226474
+    },
+    {
+      "model": "RandomForest",
+      "fold": 1,
+      "mse": 6.646698168760928e-05,
+      "pearson_ic": 0.12486068255897045
+    },
+    {
+      "model": "RandomForest",
+      "fold": 2,
+      "mse": 0.00014324828675535843,
+      "pearson_ic": 0.09435900532996107
+    },
+    {
+      "model": "RandomForest",
+      "fold": 3,
+      "mse": 0.0001459440187390891,
+      "pearson_ic": 0.08736648850440858
+    },
+    {
+      "model": "RandomForest",
+      "fold": 4,
+      "mse": 0.0001440685497300942,
+      "pearson_ic": 0.08817418149778841
+    }
+  ],
+  "cost_sensitivity": [
+    {
+      "model": "ZeroForecast",
+      "cost_bps_per_unit_turnover": 0,
+      "mean_daily_pnl_bps": 0.0,
+      "annualized_sharpe": null,
+      "mean_daily_turnover": 0.0
+    },
+    {
+      "model": "ZeroForecast",
+      "cost_bps_per_unit_turnover": 5,
+      "mean_daily_pnl_bps": 0.0,
+      "annualized_sharpe": null,
+      "mean_daily_turnover": 0.0
+    },
+    {
+      "model": "ZeroForecast",
+      "cost_bps_per_unit_turnover": 10,
+      "mean_daily_pnl_bps": 0.0,
+      "annualized_sharpe": null,
+      "mean_daily_turnover": 0.0
+    },
+    {
+      "model": "Ridge",
+      "cost_bps_per_unit_turnover": 0,
+      "mean_daily_pnl_bps": 1.3634258703044362,
+      "annualized_sharpe": 1.4977734106980019,
+      "mean_daily_turnover": 0.12238788640689785
+    },
+    {
+      "model": "Ridge",
+      "cost_bps_per_unit_turnover": 5,
+      "mean_daily_pnl_bps": 0.7514864382699468,
+      "annualized_sharpe": 0.8262014884578907,
+      "mean_daily_turnover": 0.12238788640689785
+    },
+    {
+      "model": "Ridge",
+      "cost_bps_per_unit_turnover": 10,
+      "mean_daily_pnl_bps": 0.13954700623545752,
+      "annualized_sharpe": 0.1533874247847261,
+      "mean_daily_turnover": 0.12238788640689785
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps_per_unit_turnover": 0,
+      "mean_daily_pnl_bps": 1.356873338798797,
+      "annualized_sharpe": 1.5008983351560348,
+      "mean_daily_turnover": 0.12146889812188623
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps_per_unit_turnover": 5,
+      "mean_daily_pnl_bps": 0.7495288481893655,
+      "annualized_sharpe": 0.8295852842558367,
+      "mean_daily_turnover": 0.12146889812188623
+    },
+    {
+      "model": "RandomForest",
+      "cost_bps_per_unit_turnover": 10,
+      "mean_daily_pnl_bps": 0.14218435757993447,
+      "annualized_sharpe": 0.15725802988674456,
+      "mean_daily_turnover": 0.12146889812188623
+    }
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit_learn": "1.8.0"
+  }
+}
